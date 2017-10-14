@@ -5,8 +5,8 @@ import re
 import requests
 import smtplib
 
-IP_REGEX = re.compile('(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.)'
-                      '{3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])')
+IP_REGEX = re.compile(r'\b(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.)'
+                       '{3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\b')
 
 
 def query_ip(url):
@@ -15,7 +15,6 @@ def query_ip(url):
     :param str url: A string representing the URL to find the IP within.
     
     :return: A string representing the URL if it was found, otherwise None. """
-
 
     try:
         response = requests.get(url)
