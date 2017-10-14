@@ -207,7 +207,7 @@ if __name__ == '__main__':
         saved_ip_loc = os.path.join(module_directory, "info/saved_ip.txt")
         saved_ip = get_saved_ip(saved_ip_loc)
 
-        if found_ip == saved_ip:
+        if found_ip != saved_ip:
             # New IP found, email using the obtain details.
             logging.info("External IP found differs from saved IP of "
                          "%s. Sending email." % saved_ip)
