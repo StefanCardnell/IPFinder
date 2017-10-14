@@ -174,6 +174,7 @@ def start_logging(log_loc):
     logging.basicConfig(filename=log_loc, level=logging.INFO,
                         format='[%(levelname)s][%(asctime)s]: %(message)s')
 
+
 if __name__ == '__main__':
 
     try:
@@ -184,6 +185,7 @@ if __name__ == '__main__':
         log_loc = os.path.join(module_directory, 'info/IPFinderLog.txt')
         start_logging(log_loc)
 
+        logging.info("############################")
         logging.info("Starting external IP Finder.")
 
         # Obtain the email details.
