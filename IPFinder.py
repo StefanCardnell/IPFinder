@@ -39,7 +39,7 @@ def get_ip():
     :return str: A string representing the found IP. Otherwise None."""
 
     valid_sites = [
-        'https://api.ipifyomom,.org/',
+        'https://api.ipify.org/',
         'http://ident.me/',
         'http://myip.dnsomatic.com/',
         'http://www.trackip.net',
