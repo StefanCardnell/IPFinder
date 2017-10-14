@@ -17,7 +17,7 @@ def query_ip(url):
     :return: A string representing the URL if it was found, otherwise None. """
 
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=10)
         response.raise_for_status()
     except requests.exceptions.RequestException as err:
         # Timeout error, DNS failure, refused connection, no connection... etc
@@ -39,7 +39,7 @@ def get_ip():
     :return str: A string representing the found IP. Otherwise None."""
 
     valid_sites = [
-        'https://api.ipify.org/',
+        'https://api.ipifyomom,.org/',
         'http://ident.me/',
         'http://myip.dnsomatic.com/',
         'http://www.trackip.net',
