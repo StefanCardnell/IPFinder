@@ -14,7 +14,7 @@ def query_ip(url):
     
     :param str url: A string representing the URL to find the IP within.
     
-    :return: A string representing the URL if it was found, otherwise None. """
+    :return: A string representing the IP if it was found, otherwise None. """
 
     try:
         response = requests.get(url, timeout=10)
@@ -165,10 +165,9 @@ def email_ip(smtp_addr, from_addr, from_pwd, to_addr, found_ip):
 
 
 def start_logging(log_loc):
-    """ Starts the logging at a specific location and level
+    """ Starts the logging at a specific location
 
-    :param str log_loc: The file location to log to
-    :param level: The logging level"""
+    :param str log_loc: The file location to log to. """
 
     make_dirs(log_loc)
     logging.basicConfig(filename=log_loc, level=logging.INFO,
@@ -180,11 +179,9 @@ if __name__ == '__main__':
     try:
 
         module_directory = os.path.dirname(os.path.abspath(__file__))
-
         # Initialise the logging.
         log_loc = os.path.join(module_directory, 'info/IPFinderLog.txt')
         start_logging(log_loc)
-
         logging.info("############################")
         logging.info("Starting external IP Finder.")
 
@@ -209,7 +206,7 @@ if __name__ == '__main__':
         saved_ip = get_saved_ip(saved_ip_loc)
 
         if found_ip != saved_ip:
-            # New IP found, email using the obtain details.
+            # New IP found, email using the obtained details.
             logging.info("External IP found differs from saved IP of "
                          "%s. Sending email." % saved_ip)
             email_status = email_ip(found_ip=found_ip, **email_details)
